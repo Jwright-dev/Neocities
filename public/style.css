@@ -260,3 +260,10 @@
                     flex-wrap: wrap;
                 }
             }
+            /* Pictures page */
+            #instagram {
+                border: solid black 5px;
+                width: 400px;
+                height: 80%;
+                margin: auto;
+            }
