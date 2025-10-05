@@ -7,7 +7,7 @@
     the images as variables */
 
             :root {
-                --header-image: url('https://sadhost.neocities.org/images/layouts/wp.jpeg');
+                --header-image: url('https://jwrightdev.neocities.org/assets/headerbg.jpg');
                 --body-bg-image: url('https://jwrightdev.neocities.org/assets/bg.gif');
 
                 /* colors */
@@ -20,7 +20,7 @@
             /* this seems like a lot for just one font and I would have to agree 
     but I wanted to include an example of how to include a custom font.
     If you download a font file you can upload it onto your Neocities
-    and then link it! Many fonts have separate files for each style
+    and then link it! Many fonts  have separate files for each style
     (bold, italic, etc. T_T) which is why there are so many!
     
     */
