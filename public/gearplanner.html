@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtle WoW Gear Planner</title>
+    <link rel="stylesheet" href="gearplanner.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-dragon"></i> Turtle WoW Gear Planner</h1>
+            <p>Plan your perfect character build and dominate Azeroth!</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Character Panel -->
+            <div class="character-panel">
+                <h2><i class="fas fa-user"></i> Character</h2>
+                
+                <div class="character-selector">
+                    <button class="char-btn active" onclick="selectCharacter(0)">Warrior</button>
+                    <button class="char-btn" onclick="selectCharacter(1)">Paladin</button>
+                    <button class="char-btn" onclick="selectCharacter(2)">Hunter</button>
+                    <button class="char-btn" onclick="selectCharacter(3)">Rogue</button>
+                    <button class="char-btn" onclick="selectCharacter(4)">Priest</button>
+                    <button class="char-btn" onclick="selectCharacter(5)">Shaman</button>
+                    <button class="char-btn" onclick="selectCharacter(6)">Mage</button>
+                    <button class="char-btn" onclick="selectCharacter(7)">Warlock</button>
+                    <button class="char-btn" onclick="selectCharacter(8)">Druid</button>
+                </div>
+
+                <div class="character-sheet">
+                    <div class="equipment-slot" data-slot="head" onclick="selectSlot('head')">
+                        <div class="slot-label">Head</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="neck" onclick="selectSlot('neck')">
+                        <div class="slot-label">Neck</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="shoulders" onclick="selectSlot('shoulders')">
+                        <div class="slot-label">Shoulders</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="back" onclick="selectSlot('back')">
+                        <div class="slot-label">Back</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="chest" onclick="selectSlot('chest')">
+                        <div class="slot-label">Chest</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="shirt" onclick="selectSlot('shirt')">
+                        <div class="slot-label">Shirt</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="tabard" onclick="selectSlot('tabard')">
+                        <div class="slot-label">Tabard</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="wrists" onclick="selectSlot('wrists')">
+                        <div class="slot-label">Wrists</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="hands" onclick="selectSlot('hands')">
+                        <div class="slot-label">Hands</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="waist" onclick="selectSlot('waist')">
+                        <div class="slot-label">Waist</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="legs" onclick="selectSlot('legs')">
+                        <div class="slot-label">Legs</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="feet" onclick="selectSlot('feet')">
+                        <div class="slot-label">Feet</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="ring1" onclick="selectSlot('ring1')">
+                        <div class="slot-label">Ring 1</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="ring2" onclick="selectSlot('ring2')">
+                        <div class="slot-label">Ring 2</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="trinket1" onclick="selectSlot('trinket1')">
+                        <div class="slot-label">Trinket 1</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="trinket2" onclick="selectSlot('trinket2')">
+                        <div class="slot-label">Trinket 2</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="mainhand" onclick="selectSlot('mainhand')">
+                        <div class="slot-label">Main Hand</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="offhand" onclick="selectSlot('offhand')">
+                        <div class="slot-label">Off Hand</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                    <div class="equipment-slot" data-slot="ranged" onclick="selectSlot('ranged')">
+                        <div class="slot-label">Ranged</div>
+                        <div class="item-name">Empty</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="saveBuild()">
+                        <i class="fas fa-save"></i> Save Build
+                    </button>
+                    <button class="btn btn-secondary" onclick="shareBuild()">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item Panel -->
+            <div class="item-panel">
+                <h2><i class="fas fa-sword"></i> Item Database</h2>
+                
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Search items..." id="itemSearch" onkeyup="searchItems()">
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all" onclick="filterItems('all')">All</button>
+                        <button class="filter-btn" data-filter="epic" onclick="filterItems('epic')">Epic</button>
+                        <button class="filter-btn" data-filter="rare" onclick="filterItems('rare')">Rare</button>
+                        <button class="filter-btn" data-filter="uncommon" onclick="filterItems('uncommon')">Uncommon</button>
+                        <button class="filter-btn" data-filter="legendary" onclick="filterItems('legendary')">Legendary</button>
+                    </div>
+                </div>
+
+                <div class="items-grid" id="itemsGrid">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Stats Panel -->
+            <div class="stats-panel">
+                <h2><i class="fas fa-chart-bar"></i> Character Stats</h2>
+                
+                <div class="stats-section">
+                    <h3>Attributes</h3>
+                    <div class="stat-row">
+                        <span class="stat-label">Strength</span>
+                        <span class="stat-value" id="strength">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Agility</span>
+                        <span class="stat-value" id="agility">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Stamina</span>
+                        <span class="stat-value" id="stamina">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Intellect</span>
+                        <span class="stat-value" id="intellect">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Spirit</span>
+                        <span class="stat-value" id="spirit">0</span>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>Combat Stats</h3>
+                    <div class="stat-row">
+                        <span class="stat-label">Attack Power</span>
+                        <span class="stat-value" id="attackPower">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Spell Power</span>
+                        <span class="stat-value" id="spellPower">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Crit Chance</span>
+                        <span class="stat-value" id="critChance">0%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Hit Chance</span>
+                        <span class="stat-value" id="hitChance">0%</span>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>Defensive Stats</h3>
+                    <div class="stat-row">
+                        <span class="stat-label">Armor</span>
+                        <span class="stat-value" id="armor">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Defense</span>
+                        <span class="stat-value" id="defense">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Dodge</span>
+                        <span class="stat-value" id="dodge">0%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Parry</span>
+                        <span class="stat-value" id="parry">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="gearplanner.js"></script>
+</body>
+</html>
