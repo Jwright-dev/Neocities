@@ -16,7 +16,6 @@
             margin: 0 auto;
             padding: 20px;
         }
-
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -278,6 +277,12 @@
             font-size: 24px;
             cursor: pointer;
             color: #fff;
+        }
+
+        #homebutton {
+            background-color:#ffffff;
+            margin: auto;
+            max-width: 60px;
         }
 
         @media (max-width: 1024px) {
