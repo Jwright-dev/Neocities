@@ -250,6 +250,44 @@
                 padding: 10px;
             }
 
+            .blog-posts details {
+                background-color: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(237, 100, 245, 0.4);
+                border-radius: 12px;
+                margin-bottom: 16px;
+                padding: 15px;
+            }
+
+            .blog-posts summary {
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: 800;
+                margin-bottom: 10px;
+                list-style: none;
+                color: #fceaff;
+            }
+
+            .blog-posts summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .blog-posts summary:before {
+                content: '▾';
+                display: inline-block;
+                margin-right: 8px;
+                transition: transform 0.2s ease;
+            }
+
+            .blog-posts details[open] summary:before {
+                transform: rotate(180deg);
+            }
+
+            .blog-posts p {
+                color: #f5e9ff;
+                line-height: 1.6;
+                margin: 0;
+            }
+
             /* CSS for extras */
 
             /* BELOW THIS POINT IS MEDIA QUERY */
