@@ -123,22 +123,62 @@
             }
 
             #navbar li {
+                position: relative;
                 padding-top: 10px;
             }
 
             /* navigation links*/
-            #navbar li a {
+            #navbar li a,
+            #navbar .dropdown-toggle {
                 color: #ED64F5;
                 /* navbar text color */
                 font-weight: 800;
                 text-decoration: none;
                 /* this removes the underline */
+                cursor: pointer;
+            }
+
+            #navbar .dropdown-toggle {
+                display: inline-block;
             }
 
             /* navigation link when a link is hovered over */
-            #navbar li a:hover {
+            #navbar li a:hover,
+            #navbar .dropdown-toggle:hover {
                 color: #a49cba;
                 text-decoration: underline;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #13092D;
+                border: 1px solid #ED64F5;
+                list-style: none;
+                margin: 0;
+                padding: 5px 0;
+                min-width: 180px;
+                z-index: 10;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.15s ease;
+            }
+
+            .dropdown-menu li {
+                padding: 0;
+            }
+
+            .dropdown-menu li a {
+                display: block;
+                padding: 8px 15px;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                opacity: 1;
+                visibility: visible;
             }
 
             #flex {
@@ -244,6 +284,11 @@
 
                 #navbar ul {
                     flex-wrap: wrap;
+                }
+
+                .dropdown-menu {
+                    position: static;
+                    width: 100%;
                 }
             }
             /* Pictures page */
