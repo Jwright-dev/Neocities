@@ -7,7 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <div id="container"><div id="header"></div>
+        <div id="container"><div id="header"><div id="audioPlayer">
+                <select id="trackSelect">
+                    <option value="">Select a track...</option>
+                    <option value="https://jwrightdev.neocities.org/assets/Music/c u in da ballpit - Camping In Alaska.mp3">Track 1</option>
+                    <option value="assets/track2.mp3">Track 2</option>
+                </select>
+                <p id="audioLabel">What I'm currently listening to</p>
+                <audio id="musicPlayer" controls preload="none">
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div></div>
             <nav id="navbar"><ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="pictures.html">Pictures</a></li>
@@ -45,5 +56,17 @@
             </ul></aside></div>
             <footer id="footer">Started, 2025</footer>
         </div>
+        <script>
+            const trackSelect = document.getElementById('trackSelect');
+            const musicPlayer = document.getElementById('musicPlayer');
+
+            trackSelect.addEventListener('change', function() {
+                const selectedTrack = this.value;
+                if (selectedTrack) {
+                    musicPlayer.src = selectedTrack;
+                    musicPlayer.load();
+                }
+            });
+        </script>
 </body>
 </html>

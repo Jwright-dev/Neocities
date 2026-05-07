@@ -103,6 +103,45 @@
       you can add them directly to the <div id="header"></div> element! */
                 background-image: var(--header-image);
                 background-size: 100%;
+                position: relative;
+            }
+
+            /* audio player */
+            #audioPlayer {
+                position: absolute;
+                top: 143px;
+                right: 0;
+                width: 300px;
+                height: 100px;
+                background: transparent;
+                padding: 8px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+            }
+
+            #audioLabel {
+                color: #ED64F5;
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+            }
+
+            #musicPlayer {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 10px;
+            }
+
+            #trackSelect {
+                background-color: #13092D;
+                color: #fceaff;
+                border: 1px solid #ED64F5;
+                padding: 5px;
+                border-radius: 4px;
+                font-family: 'Nunito', sans-serif;
             }
 
             /* navigation section!! */
@@ -112,6 +151,7 @@
                 /* navbar color */
                 width: 100%;
                 margin-bottom: 0;
+                clear: both;
             }
 
             #navbar ul {
