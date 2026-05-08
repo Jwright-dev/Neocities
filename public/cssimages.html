@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <li class="dropdown">
                     <span class="dropdown-toggle">Projects</span>
                     <ul class="dropdown-menu">
-                        <li><a href="cssimages.html">CSS Images</a></li>
+                        <li><a href="cssimages.html">Calculator</a></li>
                         <li><a href="gearplanner.html">Warcraft Gear Planner</a></li>
                     </ul>
                 </li>
@@ -22,31 +22,29 @@
               </ul></nav>
             <div id="flex">              
                 <main>
-                    <h1>CSS Images</h1>
-                    <p><strong>Calculator</strong></p>
-                    <p>Ok, I get it. Its not much, but it was the first image I tried to make on my own after the first css tutorial about how you can make images with different div elements.</p>
-                       <!--Calculator start--> 
-    <div class="calborder">
-    <h1>Calculator</h1>
-    <div class="calcontainerthree caltext">
-        <div class="circle one"><p>7</p></div>
-        <div class="circle two"><p>8</p></div>
-        <div class="circle three"><p>9</p></div>
-    </div>
-    <div class="calcontainertwo caltext">
-        <div class="circle one"><p>4</p></div>
-        <div class="circle two"><p>5</p></div>
-        <div class="circle three"><p>6</p></div>
-    </div>
-    <div class="calcontainerone caltext">
-        <div class="circle one"><p>1</p></div>
-        <div class="circle two"><p>2</p></div>
-        <div class="circle three"><p>3</p></div>
-    </div>
-    <div class="calcontainerzero caltext">
-        <div class="circle zero"><p>0</p></div>
-    </div>
-    <!--Calculator end--> 
+                    <h1>Calculator</h1>
+                    <div id="calculator">
+                        <input type="text" id="display" readonly>
+                        <div class="buttons">
+                            <button>7</button>
+                            <button>8</button>
+                            <button>9</button>
+                            <button>+</button>
+                            <button>4</button>
+                            <button>5</button>
+                            <button>6</button>
+                            <button>-</button>
+                            <button>1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>*</button>
+                            <button>0</button>
+                            <button>.</button>
+                            <button>/</button>
+                            <button>=</button>
+                            <button>C</button>
+                        </div>
+                    </div> 
 
 
                 </main>
@@ -72,75 +70,70 @@
     
 </div>
 </div>
+<script>
+let display = document.getElementById('display');
+let buttons = document.querySelectorAll('#calculator button');
+let currentInput = '';
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    let value = button.textContent;
+    if (value === 'C') {
+      currentInput = '';
+      display.value = '';
+    } else if (value === '=') {
+      try {
+        display.value = eval(currentInput);
+        currentInput = display.value;
+      } catch {
+        display.value = 'Error';
+        currentInput = '';
+      }
+    } else {
+      currentInput += value;
+      display.value = currentInput;
+    }
+  });
+});
+</script>
 <style>
-    h1 {
-    text-align: center;
-    ;
-
+#calculator {
+  width: 200px;
+  margin: 0 auto;
+  border: 1px solid #ED64F5;
+  padding: 10px;
+  background-color: #241445;
+  border-radius: 8px;
 }
-
-.header {
-    background-color: gray;
+#display {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  text-align: right;
+  margin-bottom: 10px;
+  background-color: #13092D;
+  color: #fceaff;
+  border: 1px solid #ED64F5;
+  border-radius: 4px;
+  padding: 5px;
 }
-
-.lpboxone {
-    background-color: whitesmoke;
-    text-align: center;
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-/* calculator fonts */
-.caltext {
-    padding-top: 0%;
-    font-size: 200%;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+.buttons button {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  font-size: 18px;
+  background-color: #13092D;
+  color: #ED64F5;
+  border: 1px solid #ED64F5;
+  border-radius: 4px;
+  cursor: pointer;
 }
-/* calculator bg */
-.calborder {
-    background-color: tan;
-    margin: auto;
-    width: 600px;
-    height: 550px;
-}
-/* calculator containers */
-.calcontainerzero, .calcontainerone, .calcontainertwo, .calcontainerthree {
-    background-color: gray;
-    margin: 10px auto;
-    width: 450px;
-    display: flex;
-    flex-direction: row;
-    
-}
-/* calculator button shapes */
-.circle {
-    display: inline-block;
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    border-radius: 100%;
-    border: 5px solid black;
-}
-/* calculator button colors */
-.one {
-    background-color: red;
-    
-}
-.two {
-    background-color: blue;
-    
-}
-.three {
-    background-color: green;
-    
-}
-.zero {
-    background-color: purple;
-    width: 300px;
-    border-radius: 25%;   
-}
-/* home page button */
-.callink {
-    margin: auto;
-    padding-top: 10px;
+.buttons button:hover {
+  background-color: #241445;
 }
 </style>
 </body>
