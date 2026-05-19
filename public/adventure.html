@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Minimal game styles */
+        #game { max-width:800px; margin:24px auto; padding:16px; background:#fff8e1; border-radius:6px; color:#000; }
+        #story { white-space:pre-wrap; margin-bottom:12px; color:#000; }
+        .opts { display:flex; gap:8px; flex-wrap:wrap; }
+        .opts button { flex:1 1 calc(50% - 8px); padding:8px; }
+        #inventory { margin-top:12px; font-size:0.95em; }
+        #controls { margin-top:12px; }
+    </style>
+</head>
+<body>
+    <div id="container"><div id="header"></div>
+        <nav id="navbar"><ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pictures.html">Pictures</a></li>
+            <li class="dropdown">
+                <span class="dropdown-toggle">Projects</span>
+                <ul class="dropdown-menu">
+                    <li><a href="cssimages.html">Calculator</a></li>
+                    <li><a href="gearplanner.html">Warcraft Gear Planner</a></li>
+                    <li><a href="adventure.html">Text Adventure</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul></nav>
+        <div id="flex">
+            <main>
+                <h1>Text Adventure</h1>
+                <p>A small, extendable text adventure. Choose from up to 4 options at each prompt.</p>
+
+                <div id="game">
+                    <div id="story"></div>
+                    <div class="opts" id="options"></div>
+                    <div id="controls">
+                        <button id="backBtn">Back</button>
+                        <button id="restartBtn">Restart</button>
+                    </div>
+                    <div id="inventory"><strong>Inventory:</strong> <span id="invList">(empty)</span></div>
+                </div>
+
+                <!-- How to add more content
+                Open adventure.js and edit the two data structures at the top:
+                
+                    `objects`: a dictionary of items the game can give or check for. Add new keys with description fields.
+                    `nodes`: each node is a prompt with `text` and an `options` array (up to 4). Each option is an object: { text, next, gives, requires }.
+                
+                    Example option that gives an item: { text: "Open chest", next: "chestOpen", gives: "rustyKey" }
+                    Example option that requires an item to be selectable: { text: "Unlock door", next: "roomInside", requires: "rustyKey" }
+            -->
+            </main>
+        </div>
+        <footer id="footer">Started, 2025</footer>
+    </div>
+    <script src="adventure.js"></script>
+</body>
+</html>
